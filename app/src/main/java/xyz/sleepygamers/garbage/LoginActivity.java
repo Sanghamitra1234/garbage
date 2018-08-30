@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         firebaseAuth=FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser()!=null){
             finish();
-            startActivity(new Intent(this,welcome.class));
+            startActivity(new Intent(this,WelcomeActivity.class));
         }
 
         EtEmail = findViewById(R.id.email);
@@ -69,7 +68,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onComplete(@NonNull Task<AuthResult> task) {
                  if(task.isSuccessful()) {
                      finish();
-                     startActivity(new Intent(LoginActivity.this,welcome.class));
+                     startActivity(new Intent(LoginActivity.this,WelcomeActivity.class));
                  }
             }
         });
